@@ -55,5 +55,5 @@ export const checkControlSumInn = (inn: string, controlSumType: ControlSumType) 
 };
 
 export const validateKpp = (kpp: string): boolean => {
-    return /^\d{9}$/.test(kpp) && `${kpp[5]}${kpp[6]}` !== `50` && `${kpp[5]}${kpp[6]}` !== `01`;
+    return /^\d{9}$/.test(kpp) && `${kpp[5]}${kpp[6]}` !== `50` && `${kpp[5]}${kpp[6]}` !== `01` && `${kpp[5]}${kpp[6]}` !== `45`;
 };
