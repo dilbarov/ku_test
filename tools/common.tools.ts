@@ -51,9 +51,11 @@ export const checkControlSumInn = (inn: string, controlSumType: ControlSumType) 
         currentControlSum += Number(inn[index]) * CONTROL_NUMBERS[startPosition + index];
     }
 
-    return currentControlSum % 11 === Number(controlNumber);
+    const currentControlNumber = currentControlSum % 11 > 9 ? (currentControlSum % 11) % 10 : currentControlSum % 11;
+
+    return currentControlNumber === Number(controlNumber);
 };
 
 export const validateKpp = (kpp: string): boolean => {
-    return /^\d{9}$/.test(kpp) && `${kpp[5]}${kpp[6]}` !== `50` && `${kpp[5]}${kpp[6]}` !== `01` && `${kpp[5]}${kpp[6]}` !== `45`;
+    return /^\d{9}$/.test(kpp) && `${kpp[4]}${kpp[5]}` !== `50` && `${kpp[4]}${kpp[5]}` !== `01` && `${kpp[4]}${kpp[5]}` !== `45`;
 };
